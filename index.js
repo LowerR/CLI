@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env nodegit
 
 import chalk from "chalk";
 import inquirer from "inquirer";
@@ -6,7 +6,6 @@ import gradient from "gradient-string";
 import chalkAnimation from "chalk-animation";
 import figlet from "figlet";
 import { createSpinner } from "nanospinner";
-import * as emoji from 'node-emoji'
 
 let playerName;
 
@@ -27,7 +26,7 @@ async function welcome(){
       Caso acertar todas ganhará uma recompensa $$$.
       ${chalk.bgGreen('Pronto?')}
       
-    `)
+    `);
 }
 
 async function askName() {
@@ -55,7 +54,7 @@ async function question01() {
             'Fortran',
             'C',
         ]
-    })
+    });
     
     return handAnswer(answers.question_1 == 'Fortran');
 }
@@ -72,7 +71,7 @@ async function question02() {
             'JavaScript',
             'PHP',
         ]
-    })
+    });
     
     return handAnswer(answers.question_2 == 'Python');
 }
@@ -91,7 +90,7 @@ async function question03() {
             '15',
             '105',
         ]
-    })
+    });
     
     return handAnswer(answers.question_3 == `"105"`);
 }
@@ -108,7 +107,7 @@ async function handAnswer(isCorrect) {
         const Spinner = createSpinner('Iniciando auto-destruição').start();
         await sleep();
         process.exit(1);
-    }
+    };
 }
 
 function winner() {
@@ -117,7 +116,7 @@ function winner() {
 
     figlet (msg, (err, data) => {
         console.log(gradient.pastel.multiline(data));
-    })
+    });
 }
 
 await welcome()
